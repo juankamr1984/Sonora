@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sonora_good_morning">Good morning</string>
+    <string name="sonora_good_afternoon">Good afternoon</string>
+    <string name="sonora_good_evening">Good evening</string>
+    <string name="sonora_recently_played">Recently played</string>
+    <string name="sonora_made_for_you">Made for you</string>
+    <string name="sonora_your_playlists">Your playlists</string>
+    <string name="sonora_discover">Discover in your library</string>
+    <string name="sonora_jump_back_in">Jump back in</string>
+    <string name="sonora_mix_daily">Daily Mix</string>
+    <string name="sonora_mix_daily_desc">A fresh blend of your library</string>
+    <string name="sonora_mix_liked">Favorites Mix</string>
+    <string name="sonora_mix_liked_desc">Only the songs you love</string>
+    <string name="sonora_mix_rediscover">Rediscover</string>
+    <string name="sonora_mix_rediscover_desc">Songs you have not played in a while</string>
+    <string name="sonora_mix_empty">Not enough songs for this mix yet</string>
+    <string name="sonora_search_title">Search</string>
+    <string name="sonora_search_hint">What do you want to listen to?</string>
+    <string name="sonora_browse_all">Browse all</string>
+    <string name="sonora_genres">Your genres</string>
+    <string name="sonora_empty_library">Your library is empty. Scan your device to add music.</string>
+    <string name="sonora_scan_now">Scan music</string>
+    <string name="sonora_recap">Your Sonora Recap</string>
+    <string name="sonora_recap_banner">Your year in music is ready</string>
+    <string name="sonora_recap_minutes">Minutes listened</string>
+    <string name="sonora_recap_songs">Different songs</string>
+    <string name="sonora_recap_plays">Plays</string>
+    <string name="sonora_recap_top_songs">Your top songs</string>
+    <string name="sonora_recap_top_artists">Your top artists</string>
+    <string name="sonora_recap_top_album">Your album of the year</string>
+    <string name="sonora_recap_play_top">Play your top songs</string>
+    <string name="sonora_recap_empty">Listen to some music and come back to see your recap.</string>
+    <string name="sonora_recap_this_year">This year</string>
+    <string name="sonora_recap_all_time">All time</string>
+    <string name="sonora_recap_last_30">Last 30 days</string>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sonora_good_morning">Buenos días</string>
+    <string name="sonora_good_afternoon">Buenas tardes</string>
+    <string name="sonora_good_evening">Buenas noches</string>
+    <string name="sonora_recently_played">Escuchado recientemente</string>
+    <string name="sonora_made_for_you">Hecho para ti</string>
+    <string name="sonora_your_playlists">Tus playlists</string>
+    <string name="sonora_discover">Descubre en tu biblioteca</string>
+    <string name="sonora_jump_back_in">Vuelve a escuchar</string>
+    <string name="sonora_mix_daily">Mezcla del día</string>
+    <string name="sonora_mix_daily_desc">Una combinación nueva de tu biblioteca</string>
+    <string name="sonora_mix_liked">Mezcla de favoritas</string>
+    <string name="sonora_mix_liked_desc">Solo las canciones que te encantan</string>
+    <string name="sonora_mix_rediscover">Redescubre</string>
+    <string name="sonora_mix_rediscover_desc">Canciones que no escuchas hace tiempo</string>
+    <string name="sonora_mix_empty">Aún no hay suficientes canciones para esta mezcla</string>
+    <string name="sonora_search_title">Buscar</string>
+    <string name="sonora_search_hint">¿Qué quieres escuchar?</string>
+    <string name="sonora_browse_all">Explorar todo</string>
+    <string name="sonora_genres">Tus géneros</string>
+    <string name="sonora_empty_library">Tu biblioteca está vacía. Escanea tu dispositivo para agregar música.</string>
+    <string name="sonora_scan_now">Escanear música</string>
+    <string name="sonora_recap">Tu Resumen Sonora</string>
+    <string name="sonora_recap_banner">Tu año en música está listo</string>
+    <string name="sonora_recap_minutes">Minutos escuchados</string>
+    <string name="sonora_recap_songs">Canciones distintas</string>
+    <string name="sonora_recap_plays">Reproducciones</string>
+    <string name="sonora_recap_top_songs">Tus canciones top</string>
+    <string name="sonora_recap_top_artists">Tus artistas top</string>
+    <string name="sonora_recap_top_album">Tu álbum del año</string>
+    <string name="sonora_recap_play_top">Reproducir tus canciones top</string>
+    <string name="sonora_recap_empty">Escucha algo de música y vuelve para ver tu resumen.</string>
+    <string name="sonora_recap_this_year">Este año</string>
+    <string name="sonora_recap_all_time">Siempre</string>
+    <string name="sonora_recap_last_30">Últimos 30 días</string>
+</resources>
