@@ -84,3 +84,6 @@ const val EXTRACTOR_DEBUG = false
 const val DEBUG_SAVE_OUTPUT = false // ignored (will be false) when EXTRACTOR_DEBUG IS false
 
 const val QUEUE_DEBUG = false
+
+// Sonora: pon true para ver la versión y el modelo del teléfono sobre la pantalla (solo builds debug)
+const val SHOW_DEBUG_OVERLAY = false

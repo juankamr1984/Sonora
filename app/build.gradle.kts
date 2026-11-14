@@ -32,6 +32,13 @@ android {
         versionCode = 1
         versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // Sonora: client_id de Jamendo. Se toma de la variable de entorno JAMENDO_CLIENT_ID
+        // (secreto de GitHub Actions) o de jamendo.clientId en gradle.properties. También se puede cambiar dentro de la app.
+        val jamendoClientId = System.getenv("JAMENDO_CLIENT_ID")
+            ?: (project.findProperty("jamendo.clientId") as String?)
+            ?: ""
+        buildConfigField("String", "JAMENDO_CLIENT_ID", "\"$jamendoClientId\"")
     }
 
     signingConfigs {

@@ -107,6 +107,7 @@ import androidx.window.core.layout.WindowWidthSizeClass
 import com.dd3boh.outertune.constants.AppBarHeight
 import com.dd3boh.outertune.constants.DEFAULT_ENABLED_TABS
 import com.dd3boh.outertune.constants.DarkMode
+import com.dd3boh.outertune.constants.SHOW_DEBUG_OVERLAY
 import com.dd3boh.outertune.constants.DarkModeKey
 import com.dd3boh.outertune.constants.DefaultOpenTabKey
 import com.dd3boh.outertune.constants.DynamicThemeKey
@@ -134,6 +135,7 @@ import com.dd3boh.outertune.ui.menu.MenuState
 import com.dd3boh.outertune.ui.player.BottomSheetPlayer
 import com.dd3boh.outertune.ui.screens.ExploreScreen
 import com.dd3boh.outertune.ui.screens.RecapScreen
+import com.dd3boh.outertune.ui.screens.JamendoScreen
 import com.dd3boh.outertune.ui.screens.AlbumScreen
 import com.dd3boh.outertune.ui.screens.HistoryScreen
 import com.dd3boh.outertune.ui.screens.HomeScreen
@@ -484,6 +486,9 @@ class MainActivity : ComponentActivity() {
                                     }
                                     composable("recap") {
                                         RecapScreen(navController)
+                                    }
+                                    composable("jamendo") {
+                                        JamendoScreen(navController)
                                     }
                                     composable(Screens.Songs.route) {
                                         LibrarySongsScreen(navController)
@@ -922,7 +927,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
 
-                            if (BuildConfig.DEBUG) {
+                            if (BuildConfig.DEBUG && SHOW_DEBUG_OVERLAY) { // Sonora: marca de agua de depuración desactivada
                                 val debugColour = Color.Red
                                 Column(
                                     modifier = Modifier.padding(start = 50.dp, top = 100.dp)

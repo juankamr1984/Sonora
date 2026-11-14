@@ -20,12 +20,28 @@ import androidx.compose.material.icons.automirrored.rounded.TrendingUp
 import androidx.compose.material.icons.rounded.Album
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.Favorite
+import androidx.compose.material.icons.rounded.DownloadDone
+import androidx.compose.material.icons.rounded.Language
 import androidx.compose.material.icons.rounded.Folder
 import androidx.compose.material.icons.rounded.History
 import androidx.compose.material.icons.rounded.LibraryMusic
 import androidx.compose.material.icons.rounded.MusicNote
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.icons.rounded.Piano
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -68,6 +84,7 @@ fun ExploreScreen(
         ExploreCategory(stringResource(R.string.albums), Icons.Rounded.Album, 2, Screens.Albums.route),
         ExploreCategory(stringResource(R.string.playlists), Icons.AutoMirrored.Rounded.QueueMusic, 3, Screens.Playlists.route),
         ExploreCategory(stringResource(R.string.liked_songs), Icons.Rounded.Favorite, 5, "auto_playlist/liked"),
+        ExploreCategory(stringResource(R.string.sonora_downloaded), Icons.Rounded.DownloadDone, 2, "auto_playlist/downloaded"),
         ExploreCategory(stringResource(R.string.folders), Icons.Rounded.Folder, 4, Screens.Folders.route),
         ExploreCategory(stringResource(R.string.history), Icons.Rounded.History, 6, "history"),
         ExploreCategory(stringResource(R.string.stats), Icons.AutoMirrored.Rounded.TrendingUp, 7, "stats"),
@@ -89,6 +106,11 @@ fun ExploreScreen(
         },
         modifier = Modifier.fillMaxSize()
     ) {
+        // Sonora: acceso a música en línea (Jamendo)
+        item(span = { GridItemSpan(maxLineSpan) }) {
+            OnlineMusicBanner(onClick = { navController.navigate("jamendo") })
+        }
+
         if (genres.isNotEmpty()) {
             item(span = { GridItemSpan(maxLineSpan) }) {
                 SonoraSectionHeader(stringResource(R.string.sonora_genres), modifier = Modifier)
@@ -123,6 +145,40 @@ fun ExploreScreen(
                 colors = SonoraCardGradients[cat.gradient % SonoraCardGradients.size],
                 icon = cat.icon,
                 onClick = { navController.navigate(cat.route) }
+            )
+        }
+    }
+}
+
+@Composable
+private fun OnlineMusicBanner(onClick: () -> Unit) {
+    androidx.compose.foundation.layout.Row(
+        verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+        modifier = Modifier
+            .padding(top = 8.dp)
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(10.dp))
+            .background(Brush.horizontalGradient(SonoraCardGradients[0]))
+            .clickable(onClick = onClick)
+            .padding(16.dp)
+    ) {
+        Icon(
+            Icons.Rounded.Language,
+            contentDescription = null,
+            tint = Color.White,
+            modifier = Modifier.padding(end = 12.dp).size(32.dp)
+        )
+        Column(Modifier.weight(1f)) {
+            Text(
+                text = stringResource(R.string.sonora_online),
+                color = Color.White,
+                fontWeight = FontWeight.Black,
+                fontSize = 18.sp
+            )
+            Text(
+                text = stringResource(R.string.sonora_online_desc),
+                color = Color.White.copy(alpha = 0.85f),
+                fontSize = 13.sp
             )
         }
     }

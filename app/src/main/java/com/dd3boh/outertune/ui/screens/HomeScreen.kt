@@ -353,6 +353,14 @@ fun HomeScreen(
                         }
                         item {
                             MixCard(
+                                title = stringResource(R.string.sonora_online),
+                                subtitle = stringResource(R.string.sonora_online_desc),
+                                colors = SonoraCardGradients[4],
+                                onClick = { navController.navigate("jamendo") }
+                            )
+                        }
+                        item {
+                            MixCard(
                                 title = mixRediscoverTitle,
                                 subtitle = stringResource(R.string.sonora_mix_rediscover_desc),
                                 colors = SonoraCardGradients[2],

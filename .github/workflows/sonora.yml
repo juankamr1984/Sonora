@@ -30,6 +30,9 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Compilar APK (debug)
+        env:
+          # Opcional: crea el secreto JAMENDO_CLIENT_ID en Settings > Secrets and variables > Actions
+          JAMENDO_CLIENT_ID: ${{ secrets.JAMENDO_CLIENT_ID }}
         run: ./gradlew assembleCoreDebug --stacktrace
 
       - name: Publicar APK como artefacto

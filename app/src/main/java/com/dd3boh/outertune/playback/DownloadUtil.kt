@@ -6,7 +6,9 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import androidx.core.net.toUri
 import androidx.media3.database.DatabaseProvider
+import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.datasource.ResolvingDataSource
+import com.dd3boh.outertune.jamendo.JamendoStore
 import androidx.media3.datasource.cache.CacheDataSource
 import androidx.media3.datasource.cache.CacheSpan
 import androidx.media3.datasource.cache.SimpleCache
@@ -67,11 +69,18 @@ class DownloadUtil @Inject constructor(
 ) {
     val TAG = DownloadUtil::class.simpleName.toString()
 
+    // Sonora: las canciones de Jamendo se descargan desde internet; el resto sigue saliendo de la caché
     private val dataSourceFactory = ResolvingDataSource.Factory(
         CacheDataSource.Factory()
             .setCache(playerCache)
+            .setUpstreamDataSourceFactory(DefaultDataSource.Factory(context))
     ) { dataSpec ->
-        dataSpec
+        val id = dataSpec.key ?: dataSpec.uri.toString()
+        if (JamendoStore.isJamendoSong(id)) {
+            dataSpec.withUri(JamendoStore.downloadUrl(context, id).toUri())
+        } else {
+            dataSpec
+        }
     }
     val downloadNotificationHelper = DownloadNotificationHelper(context, ExoDownloadService.CHANNEL_ID)
     val downloadManager: DownloadManager =

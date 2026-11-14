@@ -39,6 +39,7 @@ import androidx.media3.common.Player.REPEAT_MODE_ONE
 import androidx.media3.common.Timeline
 import androidx.media3.common.audio.SonicAudioProcessor
 import androidx.media3.datasource.DataSource
+import com.dd3boh.outertune.jamendo.JamendoStore
 import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.datasource.ResolvingDataSource
 import androidx.media3.datasource.cache.CacheDataSource
@@ -607,6 +608,12 @@ class MusicService : MediaLibraryService(),
             if (isDownload || isCache) {
                 Log.d(TAG, "PLAYING: remote song (cache = ${isCache}, download = ${isDownload})")
                 return@Factory dataSpec
+            }
+
+            // Sonora: canción de Jamendo sin descargar -> streaming desde Jamendo
+            if (JamendoStore.isJamendoSong(mediaId)) {
+                Log.d(TAG, "PLAYING: Jamendo stream")
+                return@Factory dataSpec.withUri(JamendoStore.streamUrl(this@MusicService, mediaId).toUri())
             }
 
             throw PlaybackException(

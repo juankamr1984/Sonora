@@ -19,6 +19,26 @@ Basado en [OuterTune](https://github.com/OuterTune/OuterTune) (fork de InnerTune
 
 Todos los textos nuevos están en `res/values/strings-sonora.xml` (inglés) y `res/values-es/strings-sonora.xml` (español).
 
+## Música en línea (Jamendo)
+
+Sonora busca, reproduce en streaming y descarga música de [Jamendo](https://www.jamendo.com): más de medio millón de canciones de artistas independientes con licencias Creative Commons. El uso de la API es gratuito para uso personal y no comercial.
+
+- **Dónde está:** pestaña Buscar > "Música en línea", o la tarjeta "Música en línea" en Inicio > Hecho para ti.
+- **Streaming:** toca una canción para escucharla. También se guarda en caché mientras suena.
+- **Descargar:** el ícono de descarga guarda la canción en tu biblioteca para escucharla sin internet. Algunas canciones tienen la descarga desactivada por decisión del artista; en ese caso el ícono aparece tachado.
+- **Ver tus descargas:** Buscar > Descargadas, o Biblioteca > Canciones > filtro Descargadas.
+- **Playlists offline:** el ícono "+" o una pulsación larga agregan la canción a una de tus playlists. Si todas las canciones de una playlist están descargadas, funciona sin conexión.
+
+### Client ID de Jamendo (obligatorio, gratis)
+
+1. Crea una cuenta en https://devportal.jamendo.com y acepta los términos de uso de la API.
+2. Crea una aplicación (por ejemplo "Sonora personal") y copia su **Client ID**.
+3. Pégalo en la app: la primera vez que entres a "Música en línea" te lo pide. Después se cambia con el ícono de engrane de esa pantalla.
+
+Opcional: para que el APK ya lo traiga incluido, crea en GitHub el secreto `JAMENDO_CLIENT_ID` (Settings > Secrets and variables > Actions > New repository secret). El workflow lo usa al compilar.
+
+Archivos principales: `jamendo/JamendoApi.kt`, `jamendo/JamendoStore.kt`, `viewmodels/JamendoViewModel.kt`, `ui/screens/JamendoScreen.kt`.
+
 ## Cambiar nombre, paquete o color
 
 - **Nombre:** `app/src/main/res/values/app_name.xml`
